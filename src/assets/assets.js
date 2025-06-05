@@ -168,12 +168,12 @@ export const productsDummyData = [
   {
     "_id": "67a1f5663f34a77b6dde914c",
     "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "name": "Gucci Bloom",
-    "description": "Gucci Bloom is a rich white floral fragrance that captures the spirit of the contemporary, diverse, and authentic women of Gucci. It features notes of tuberose and jasmine.",
+    "name": "Gucci Flora",
+    "description": "Gucci Flora is a rich white floral fragrance that captures the spirit of the contemporary, diverse, and authentic women of Gucci. It features notes of tuberose and jasmine.",
     "price": 129.99,
     "offerPrice": 99.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/xjd4eprpwqs7odbera1w.webp"
+      "/gucci_flora.webp"
     ],
     "category": "White Floral",
     "date": 1738667366224,
@@ -187,7 +187,7 @@ export const productsDummyData = [
     "price": 149.99,
     "offerPrice": 119.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/hdfi4u3fmprazpnrnaga.webp"
+      "/ysl_black_opium.png"
     ],
     "category": "Seductive",
     "date": 1738667417511,
@@ -201,7 +201,7 @@ export const productsDummyData = [
     "price": 299.99,
     "offerPrice": 249.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/dd3l13vfoartrgbvkkh5.webp"
+      "/tom_ford_oud_wood.webp"
     ],
     "category": "Exotic",
     "date": 1738667503075,
@@ -215,7 +215,7 @@ export const productsDummyData = [
     "price": 119.99,
     "offerPrice": 89.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/r5h370zuujvrw461c6wy.webp"
+      "/jo_malone.webp"
     ],
     "category": "Charming",
     "date": 1738667788883,
@@ -229,7 +229,7 @@ export const productsDummyData = [
     "price": 349.99,
     "offerPrice": 299.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/rzri7kytphxalrm9rubd.webp"
+      "/aventus.webp"
     ],
     "category": "Bold",
     "date": 1738667977644,
@@ -243,7 +243,7 @@ export const productsDummyData = [
     "price": 89.99,
     "offerPrice": 69.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/e3zjaupyumdkladmytke.webp"
+      "/versace_eros.png"
     ],
     "category": "Woody",
     "date": 1738668086331,
@@ -257,7 +257,7 @@ export const productsDummyData = [
     "price": 99.99,
     "offerPrice": 79.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/qqdcly8a8vkyciy9g0bw.webp"
+      "/dolce_and_gabbana_light_blue.png"
     ],
     "category": "Fruity",
     "date": 1738668126660,
@@ -271,7 +271,7 @@ export const productsDummyData = [
     "price": 129.99,
     "offerPrice": 109.99,
     "image": [
-      "https://raw.githubusercontent.com/avinashdm/gs-images/main/quickcart/wig1urqgnkeyp4t2rtso.webp"
+      "/terre_hermes.webp"
     ],
     "category": "Woody Spicy",
     "date": 1738668619198,
@@ -281,7 +281,7 @@ export const productsDummyData = [
 
 export const userDummyData = {
   "_id": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-  "name": "GreatStack",
+  "name": "Adoodevv",
   "email": "admin@example.com",
   "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18ycnlnUnFiUDBYT2dEZ2h1ZmRXcGlpdWV5OXoiLCJyaWQiOiJ1c2VyXzJzWkZIUzFVSUl5c0p5RFZ6Q3BRaFVoVElodyJ9",
   "cartItems": {
@@ -304,10 +304,7 @@ export const orderDummyData = [
           "price": 199.99,
           "offerPrice": 149.99,
           "image": [
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667237/lrllaprpos2pnp5c9pyy.png",
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667238/jqotgy2rvm36vfjv6lxl.png",
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667238/niw7tqxvjsxt7wcehxeo.png",
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667237/h8cq4x9cfzqzwaiarvpk.png"
+            "https://www.chanel.com/images/w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_1920/n-5-eau-de-parfum-spray-3-4fl-oz--packshot-default-125530-9564912943134.jpg",
           ],
           "category": "Floral",
           "date": 1738667236865,
@@ -321,7 +318,7 @@ export const orderDummyData = [
     "address": {
       "_id": "67a1e4233f34a77b6dde9055",
       "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-      "fullName": "GreatStack",
+      "fullName": "Adoodevv",
       "phoneNumber": "0123456789",
       "pincode": 654321,
       "area": "Main Road , 123 Street, G Block",
@@ -346,7 +343,7 @@ export const orderDummyData = [
           "price": 159.99,
           "offerPrice": 129.99,
           "image": [
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667311/m16coelz8ivkk9f0nwrz.png"
+            "https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dw1935e7c1/Y0685240/Y0685240_F068524009_background_ZHC.png?sw=3000&sh=1600"
           ],
           "category": "Spicy",
           "date": 1738667310300,
@@ -360,7 +357,7 @@ export const orderDummyData = [
     "address": {
       "_id": "67a1e4233f34a77b6dde9055",
       "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-      "fullName": "GreatStack",
+      "fullName": "Adoodevv",
       "phoneNumber": "0123456789",
       "pincode": 654321,
       "area": "Main Road , 123 Street, G Block",
@@ -385,10 +382,7 @@ export const orderDummyData = [
           "price": 199.99,
           "offerPrice": 149.99,
           "image": [
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667237/lrllaprpos2pnp5c9pyy.png",
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667238/jqotgy2rvm36vfjv6lxl.png",
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667238/niw7tqxvjsxt7wcehxeo.png",
-            "https://res.cloudinary.com/djbvf02yt/image/upload/v1738667237/h8cq4x9cfzqzwaiarvpk.png"
+            "https://www.chanel.com/images/w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_1920/n-5-eau-de-parfum-spray-3-4fl-oz--packshot-default-125530-9564912943134.jpg",
           ],
           "category": "Floral",
           "date": 1738667236865,
@@ -402,7 +396,7 @@ export const orderDummyData = [
     "address": {
       "_id": "67a1e4233f34a77b6dde9055",
       "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-      "fullName": "GreatStack",
+      "fullName": "Adoodevv",
       "phoneNumber": "0123456789",
       "pincode": 654321,
       "area": "Main Road , 123 Street, G Block",
