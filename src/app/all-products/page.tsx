@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAppContext } from "@/context/AppContext";
+import { Product } from "@/types/types";
 
 const AllProducts = () => {
 
