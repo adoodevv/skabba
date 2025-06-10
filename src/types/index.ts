@@ -1,4 +1,3 @@
-import { UserResource } from "@clerk/nextjs";
 import { Product } from "./types";
 
 export interface CartItems {
@@ -11,7 +10,7 @@ export interface UserData {
 }
 
 export interface AppContextType {
-   user: UserResource | null;
+   user: any; // Temporarily using 'any' until UserResource is defined
    getToken: () => Promise<string | null>;
    currency: string;
    router: any; // Using any for router since it's from Next.js
