@@ -8,7 +8,7 @@ const Banner = () => {
          <Image
             className="max-w-56"
             src={assets.perfume1}
-            alt="jbl_soundbox_image"
+            alt="perfume1"
          />
          <div className="flex flex-col items-center justify-center text-center space-y-2 px-4 md:px-0">
             <h2 className="text-2xl md:text-3xl font-semibold max-w-[290px]">
@@ -29,8 +29,8 @@ const Banner = () => {
          />
          <Image
             className="md:hidden"
-            src={assets.sm_controller_image}
-            alt="sm_controller_image"
+            src={assets.perfume3}
+            alt="perfume3"
          />
       </div>
    );

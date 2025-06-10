@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.dior.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com'
+      }
     ],
   },
 };

@@ -1,11 +1,10 @@
 import { NextRouter } from 'next/router';
-import { ChangeEvent } from 'react';
 
 export interface Product {
    _id: string;
    name: string;
    description: string;
-   image: string[];
+   images: string[];
    offerPrice: number;
    originalPrice?: number;
    price?: number;

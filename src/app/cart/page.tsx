@@ -52,7 +52,7 @@ const Cart = () => {
                                     <div>
                                        <div className="rounded-lg overflow-hidden bg-gray-500/10 p-2">
                                           <Image
-                                             src={product.image[0]}
+                                             src={product.images[0]}
                                              alt={product.name}
                                              className="w-16 h-auto object-cover mix-blend-multiply"
                                              width={1280}
@@ -96,7 +96,7 @@ const Cart = () => {
                                        </button>
                                     </div>
                                  </td>
-                                 <td className="py-4 md:px-4 px-1 text-gray-600">${(product.offerPrice * cartItems[itemId]).toFixed(2)}</td>
+                                 <td className="py-4 md:px-4 px-1 text-gray-600">₵{(product.offerPrice * cartItems[itemId]).toFixed(2)}</td>
                               </tr>
                            );
                         })}
