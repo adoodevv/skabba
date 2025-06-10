@@ -32,7 +32,7 @@ const MyOrders = () => {
                         description: 'Description 1',
                         price: 100,
                         offerPrice: 80,
-                        image: ['image1.jpg'],
+                        images: ['image1.jpg'],
                         category: 'Category 1',
                         date: Date.now(),
                         __v: 0
