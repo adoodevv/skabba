@@ -8,64 +8,37 @@ import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
 import { Order } from '@/types/types';
 import { Product } from '@/types/types';
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const MyOrders = () => {
 
-   const { currency } = useAppContext();
+   const { currency, getToken, user } = useAppContext();
 
    const [orders, setOrders] = useState<Order[]>([]);
    const [loading, setLoading] = useState(true);
 
    const fetchOrders = async () => {
-      // Simulate API call
-      setTimeout(() => {
-         const orderDummyData: Order[] = [
-            {
-               _id: '1',
-               userId: 'user1',
-               items: [
-                  {
-                     product: {
-                        _id: '1',
-                        userId: 'seller1',
-                        name: 'Product 1',
-                        description: 'Description 1',
-                        price: 100,
-                        offerPrice: 80,
-                        images: ['image1.jpg'],
-                        category: 'Category 1',
-                        date: Date.now(),
-                        __v: 0
-                     },
-                     quantity: 2,
-                     _id: 'item1'
-                  }
-               ],
-               amount: 160,
-               status: 'pending' as const,
-               date: Date.now(),
-               address: {
-                  _id: 'addr1',
-                  userId: 'user1',
-                  fullName: 'John Doe',
-                  phoneNumber: '1234567890',
-                  pincode: 123456,
-                  area: 'Area 1',
-                  city: 'City 1',
-                  state: 'State 1',
-                  __v: 0
-               },
-               __v: 0
-            }
-         ];
-         setOrders(orderDummyData);
-         setLoading(false);
-      }, 1000);
+      try {
+         const token = await getToken()
+
+         const { data } = await axios.get('/api/order/list', { headers: { Authorization: `Bearer ${token}` } })
+         if (data.success) {
+            setOrders(data.orders.reverse())
+            setLoading(false)
+         } else {
+            toast.error(data.message)
+         }
+      } catch (error) {
+         toast.error(error instanceof Error ? error.message : 'An error occurred')
+      }
    }
 
    useEffect(() => {
-      fetchOrders();
-   }, []);
+      if (user) {
+         fetchOrders();
+      }
+   }, [user]);
 
    return (
       <>

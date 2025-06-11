@@ -9,19 +9,15 @@ export async function POST(request: NextRequest) {
       const { userId } = getAuth(request);
       const { address, items } = await request.json();
 
-      if (!address || !items) {
+      if (!address || items.length === 0) {
          return NextResponse.json({ success: false, message: 'Address and items are required' });
       }
 
       // calculate amount using items
-      const amount = await items.reduce(async (accPromise: Promise<number>, item: { product: string, quantity: number }) => {
-         const acc = await accPromise;
+      const amount = await items.reduce(async (acc: any, item: any) => {
          const product = await Product.findById(item.product);
-         if (!product) {
-            throw new Error('Product not found');
-         }
-         return acc + product.offerPrice * item.quantity;
-      }, Promise.resolve(0));
+         return await acc + product.offerPrice * item.quantity;
+      }, 0);
 
       await inngest.send({
          name: 'order/created',
@@ -36,10 +32,8 @@ export async function POST(request: NextRequest) {
 
       // clear user cart
       const user = await User.findById(userId);
-      if (user) {
-         user.cartItems = {};
-         await user.save();
-      }
+      user.cartItems = {};
+      await user.save();
 
       return NextResponse.json({ success: true, message: 'Order created successfully' });
    } catch (error) {

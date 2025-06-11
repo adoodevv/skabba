@@ -1,31 +1,39 @@
-import { addressDummyData } from "@/assets/assets";
 import { useAppContext } from "@/context/AppContext";
 import React, { useEffect, useState } from "react";
 import { Address } from '@/types/types';
 import axios from "axios";
 import toast from "react-hot-toast";
 
+interface CartItem {
+   product: string;
+   quantity: number;
+}
+
 const OrderSummary = () => {
 
    const { currency, router, getCartCount, getCartAmount, getToken, user, cartItems, setCartItems } = useAppContext()
    const [selectedAddress, setSelectedAddress] = useState<Address | null>(null);
    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+   const [isLoading, setIsLoading] = useState(false);
    const [userAddresses, setUserAddresses] = useState<Address[]>([]);
 
    const fetchUserAddresses = async () => {
       try {
+         setIsLoading(true);
          const token = await getToken()
 
          const { data } = await axios.get('/api/user/get-address', { headers: { Authorization: `Bearer ${token}` } })
-         setUserAddresses(data.addresses)
-         if (data.addresses.length > 0) {
+         setUserAddresses(data.addresses || [])
+         if (data.addresses?.length > 0) {
             setSelectedAddress(data.addresses[0])
          } else {
-            toast.error(data.message)
+            toast.error(data.message || 'No addresses found')
          }
       } catch (error) {
          toast.error(error instanceof Error ? error.message : 'An unknown error occurred')
+         setUserAddresses([])
+      } finally {
+         setIsLoading(false);
       }
    }
 
@@ -35,7 +43,39 @@ const OrderSummary = () => {
    };
 
    const createOrder = async () => {
+      try {
+         if (!selectedAddress) {
+            return toast.error('Please select an address')
+         }
 
+         let cartItemsArray = Object.keys(cartItems).map((key) => ({
+            product: key,
+            quantity: cartItems[key]
+         }));
+
+         cartItemsArray = cartItemsArray.filter(item => item.quantity > 0);
+
+         if (cartItemsArray.length === 0) {
+            return toast.error('No items in cart')
+         }
+
+         const token = await getToken()
+
+         const { data } = await axios.post('/api/order/create', {
+            address: selectedAddress._id,
+            items: cartItemsArray
+         }, { headers: { Authorization: `Bearer ${token}` } })
+
+         if (data.success) {
+            toast.success('Order created successfully')
+            setCartItems({})
+            router.push('/order-placed')
+         } else {
+            toast.error(data.message)
+         }
+      } catch (error) {
+         toast.error(error instanceof Error ? error.message : 'An unknown error occurred')
+      }
    }
 
    useEffect(() => {
@@ -74,15 +114,21 @@ const OrderSummary = () => {
 
                   {isDropdownOpen && (
                      <ul className="absolute w-full bg-white border shadow-md mt-1 z-10 py-1.5">
-                        {userAddresses.map((address, index) => (
-                           <li
-                              key={index}
-                              className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer"
-                              onClick={() => handleAddressSelect(address)}
-                           >
-                              {address.fullName}, {address.area}, {address.city}, {address.state}
-                           </li>
-                        ))}
+                        {isLoading ? (
+                           <li className="px-4 py-2 text-gray-500">Loading addresses...</li>
+                        ) : userAddresses?.length > 0 ? (
+                           userAddresses.map((address: Address, index: number) => (
+                              <li
+                                 key={index}
+                                 className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer"
+                                 onClick={() => handleAddressSelect(address)}
+                              >
+                                 {address.fullName}, {address.area}, {address.city}, {address.state}
+                              </li>
+                           ))
+                        ) : (
+                           <li className="px-4 py-2 text-gray-500">No addresses found</li>
+                        )}
                         <li
                            onClick={() => router.push("/add-address")}
                            className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer text-center"

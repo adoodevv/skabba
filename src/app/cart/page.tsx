@@ -76,7 +76,7 @@ const Cart = () => {
                                        </button>
                                     </div>
                                  </td>
-                                 <td className="py-4 md:px-4 px-1 text-gray-600">${product.offerPrice}</td>
+                                 <td className="py-4 md:px-4 px-1 text-gray-600">₵{product.offerPrice}</td>
                                  <td className="py-4 md:px-4 px-1">
                                     <div className="flex items-center md:gap-2 gap-1">
                                        <button onClick={() => updateCartQuantity(product._id, cartItems[itemId] - 1)}>
